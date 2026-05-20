@@ -1,0 +1,15 @@
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo "Environment is ${{ inputs.environment }}!"
