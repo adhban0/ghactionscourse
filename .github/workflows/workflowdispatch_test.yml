@@ -16,5 +16,5 @@ jobs:
           echo "::add-mask::${{ inputs.environment }}"
           echo "Environment is ${{ inputs.environment }}!"
       - name: success
-        run: echo "::debug::false negative"
+        run: echo "::warning::false negative"
         if: success()
