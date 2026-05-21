@@ -12,4 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo
-        run: echo "Environment is ${{ inputs.environment }}!"
+        run: |
+          echo "::add-mask::${{ inputs.environment }"
+          echo "Environment is ${{ inputs.environment }}!"
+      - name: success
+        run: echo "::debug::false negative"
+        if: success()
