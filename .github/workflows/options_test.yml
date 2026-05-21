@@ -11,3 +11,4 @@ jobs:
       - run: |
           import sys
           print(sys.version)
+        shell: python
