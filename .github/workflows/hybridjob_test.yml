@@ -1,0 +1,19 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  hybrid_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first on vm
+        run: echo "On VM"
+
+      - name: On Container
+        uses: docker://alpine:3.14
+        with:
+          entrypoint: /bin/sh
+          args: |
+            -c "cat /etc/os-release"
+
+      - name: second  on vm
+        run: echo "second On VM"
